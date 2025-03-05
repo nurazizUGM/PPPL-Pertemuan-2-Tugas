@@ -69,10 +69,16 @@ public class Wallet {
         }
 
         if(money == 0) {
-            this.money.removeAll(temp);
-            this.coin.removeAll(tempCoin);
+            temp.forEach(this.money::remove);
+            tempCoin.forEach(this.coin::remove);
             return amount;
         }
         return 0;
+    }
+
+    public void clear() {
+        cards.clear();
+        money.clear();
+        coin.clear();
     }
 }
